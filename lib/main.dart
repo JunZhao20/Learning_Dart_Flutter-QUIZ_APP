@@ -4,14 +4,28 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return MyAppState();
+  }
+}
+
+class MyAppState extends State<MyApp> {
+  var questionIndex = 0;
+
   void answerQuestion() {
-    print('Answer chose!');
+    setState(() {
+      questionIndex = questionIndex + 1;
+    });
+
+    print(questionIndex);
   }
 
+  var questions = ['whats your fave colour?', 'what is your fave animal?'];
   @override
   Widget build(BuildContext context) {
-    var questions = ['what\'s your fave colour', 'what\'s your fave animal'];
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -19,7 +33,7 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: [
-            const Text('The question!'),
+            Text(questions[questionIndex]),
             ElevatedButton(
               onPressed: answerQuestion,
               child: const Text('Answer 1'),
