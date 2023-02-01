@@ -28,7 +28,21 @@ class _MyAppState extends State<MyApp> {
     print(_questionIndex);
   }
 
-  var questions = ['whats your fave colour?', 'what is your fave animal?'];
+  // maps the questions and answers
+  var questions = [
+    {
+      'questionText': 'whats your favourite colour?',
+      'answers': ['Black', 'Red', 'Green', 'White'],
+    },
+    {
+      'questionText': 'what is your favourite animal?',
+      'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
+    },
+    {
+      'questionText': 'who is your favourite instructor?',
+      'answers': ['Max', 'Max1', 'MAX', 'MAX1']
+    }
+  ];
   @override
   //defines the main widget pages by returning the widget tree
   Widget build(BuildContext context) {
