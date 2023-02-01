@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import './question.dart';
+
+import './answer.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -16,6 +20,7 @@ class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
 
   void _answerQuestion() {
+    // allows the change to be shown in app.
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
@@ -25,6 +30,7 @@ class _MyAppState extends State<MyApp> {
 
   var questions = ['whats your fave colour?', 'what is your fave animal?'];
   @override
+  //defines the main widget pages by returning the widget tree
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
@@ -33,19 +39,12 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Text(questions[_questionIndex]),
-            ElevatedButton(
-              onPressed: _answerQuestion,
-              child: const Text('Answer 1'),
-            ),
-            ElevatedButton(
-              onPressed: _answerQuestion,
-              child: const Text('Answer 2'),
-            ),
-            ElevatedButton(
-              onPressed: _answerQuestion,
-              child: const Text('Answer 3'),
-            ),
+            Question(questions[_questionIndex]),
+            //Question
+            //passing a function into a widget (callback)
+            Answer(_answerQuestion),
+            Answer(_answerQuestion),
+            Answer(_answerQuestion),
           ],
         ),
       ),
