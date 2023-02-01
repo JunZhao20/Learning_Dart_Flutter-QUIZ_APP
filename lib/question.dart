@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// Allows main.dart to define the change of questions to UI
+// Which also allows the main.dart to be cleaner when styling
 class Question extends StatelessWidget {
   final String questionText;
 
